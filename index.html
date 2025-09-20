@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soma Food Distributors</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #b00000;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      width: 180px;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 400;
+      font-size: 1.1rem;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 0.5px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #fff;
+      background-color: #b00000;
+      transform: scale(1.05);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      text-align: left;
+    }
+
+    .hero img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 30%;
+      left: 8%;
+      color: #27408b;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      text-align: left;
+      width: 60%;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      color: #27408b;
+    }
+
+    .hero-text .btn {
+      position: absolute;
+      top: 120%;
+      right: -50%;
+      transform: translateY(-50%);
+      display: inline-block;
+      padding: 12px 28px;
+      background: #b00000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .hero-text .btn:hover {
+      background: #27408b;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    /* About Us Section */
+    .about-section {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: #fefefe;
+      padding: 50px 30px;
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      line-height: 1.8;
+      border-right: 6px solid #b00000;
+    }
+
+    .about-section h2 {
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #b00000;
+    }
+
+    .about-section p {
+      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #4a4a4a;
+    }
+
+    .about-section h3 {
+      color: #27408b;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .about-section .mission,
+    .about-section .vision {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Who we serve */
+    .serve p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* Products Carousel */
+    .product-carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .product-carousel {
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .product-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-carousel {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      min-width: 220px;
+      flex: 0 0 auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin: 12px 15px 6px;
+      color: #333;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0 15px 12px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Carousel Buttons */
+    .carousel-btn {
+      display: none;
+      /* hidden on desktop */
+      background-color: #b00000;
+      color: #fff;
+      border: none;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background-color: #800000;
+    }
+
+    .carousel-btn.prev {
+      margin-right: 10px;
+    }
+
+    .carousel-btn.next {
+      margin-left: 10px;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-details {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      border-left: 6px solid #b00000;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    .contact-details h3 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .contact-details p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .map {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 350px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-text {
+        top: 25%;
+        left: 5%;
+        width: 70%;
+      }
+
+      .hero-text .btn {
+        top: auto;
+        bottom: -110px;
+        right: -20%;
+        transform: none;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      .contact-details {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+
+      /* Show carousel buttons only on mobile */
+      .carousel-btn {
+        display: block;
+      }
+
+      .product-card {
+        min-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text .btn {
+        bottom: 15px;
+        right: 5%;
+      }
+
+      .navbar a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.6rem;
+      }
+
+      .btn {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="Logo.jpeg" alt="SFD Logo" />
+    </div>
+    <nav class="navbar">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <img src="isuzu 3.png" alt="Delivery" />
+    <div class="hero-text">
+      <h2>DELIVERING <br> QUALITY FOOD. <br> ON TIME,<br> EVERY TIME.</h2>
+      <a href="#products" class="btn">VIEW PRODUCTS</a>
+    </div>
+  </section>
+
+  <!-- Who we serve -->
+  <section class="serve">
+    <h4>WHO WE SERVE</h4>
+    <p>Wholesalers • Retailers • Supermarkets • Restaurants</p>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2>OUR PRODUCTS</h2>
+    <div class="product-carousel-container">
+      <button class="carousel-btn prev">&#10094;</button>
+      <div class="product-carousel">
+        <div class="product-card">
+          <img src="meat.avif" alt="Processed Meats">
+          <h3>Processed Meats</h3>
+          <p>High-quality halal-certified processed meats.</p>
+        </div>
+        <div class="product-card">
+          <img src="Chips.jpg" alt="Snacks">
+          <h3>Snacks</h3>
+          <p>Delicious chips and snack items for retail.</p>
+        </div>
+        <div class="product-card">
+          <img src="Food products.jpg" alt="Food Products">
+          <h3>Food Products</h3>
+          <p>Variety of food products for restaurants and stores.</p>
+        </div>
+        <div class="product-card">
+          <img src="chicken portions.jpg" alt="Chicken Portions">
+          <h3>Chicken Portions</h3>
+          <p>Fresh chicken portions, ready for delivery.</p>
+        </div>
+        <div class="product-card">
+          <img src="goat ribs for cover.jpg" alt="Goat Ribs">
+          <h3>Goat Ribs</h3>
+          <p>Premium quality goat ribs for catering and restaurants.</p>
+        </div>
+      </div>
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>ABOUT US</h2>
+    <p>
+      Soma Food Distributors is committed to delivering quality, halal-certified food to wholesalers, retailers,
+      and restaurants across South Africa. Our mission is rooted in reliability, quality, and service excellence.
+    </p>
+
+    <div class="mission">
+      <h3>Our Mission</h3>
+      <p>At Soma Food Distributors, our mission is to provide premium processed meats and fresh meat portions through efficient
+      distribution, strong partnerships, and an unwavering commitment to quality. We strive to serve retailers, wholesalers,
+      and communities with excellence, offering dependable, budget-friendly products that make us the preferred choice in food
+      supply.</p>
+    </div>
+
+    <div class="vision">
+      <h3>Our Vision</h3>
+      <p>To be the trusted leader in delivering high-quality, affordable, and reliable food solutions that enrich communities and
+      support businesses across the region.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <div class="contact-details">
+        <h2>CONTACT US</h2>
+        <p><strong>Reg No:</strong> 2025/052166/07</p>
+        <p><strong>Tel:</strong> +27 10 502 1899</p>
+        <p><strong>Cell:</strong> +27 66 028 2525</p>
+        <p><strong>Email:</strong> ismail@somafood.co.za, sales@somafood.co.za</p>
+        <p><strong>Address:</strong> 23 Prop Street, B9 Selby Industrial Park, Selby, Johannesburg 2001</p>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.2866008499976!2d28.021768375188644!3d-26.21849306558485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950e5c4c1234%3A0xabcdef123456789!2s23%20Prop%20St%2C%20Selby%2C%20Johannesburg%2C%202001!5e0!3m2!1sen!2sza!4v1696351111111"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel Script -->
+  <script>
+    const carousel = document.querySelector(".product-carousel");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+
+    const scrollAmount = 260; // card width + gap
+
+    nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+  </script>
+</body>
+
+</html>
