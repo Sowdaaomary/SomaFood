@@ -1,0 +1,468 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+    color: #b00000;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: #555;
+    font-style: italic;
+}
+
+/* Navbar */
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #b00000;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%);
+    transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.05);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background-color: navy; 
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: blue; /* Darker red */
+}
+
+/* Who We Serve Section */
+.serve {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.serve-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.icon p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* Products Section */
+.products {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 15px;
+    font-weight: bold;
+    color: #b00000;
+}
+
+/* Why Choose Us */
+.why-choose {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.why-choose ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-choose li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .serve-icons,
+    .product-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        height: 300px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    width: 180px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #b00000;
+}
+
+.products {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.products h2 {
+    color: #b00000;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #b00000;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.03);
+}
+
+.product-card p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #b00000;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Mobile: 1 image per row */
+@media (max-width: 700px) {
+    .product-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 90%;
+    }
+
+    .product-card img {
+        height: auto;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    width: 180px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #b00000;
+}
+
+.contact {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 20px;
+    margin-top: 20px;
+    border: 3px solid #b00000;
+    /* Red border */
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    /* Bold font */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.contact ul:hover {
+    transform: translateY(-10px);
+    /* Float up */
+    box-shadow: 0 0 15px 4px rgba(176, 0, 0, 0.6);
+    /* Red glow */
+}
+
+.contact li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    /* Make font bold */
+    color: #4a4a4a;
+    /* Slightly dark gray for professional look */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Sticky Header */
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 160px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #b00000;
+}
+
+.about {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    color: #b00000;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.about h3 {
+    color: #b00000;
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.about p,
+.about .mission,
+.about .vision {
+    max-width: 800px;
+    margin: auto 0 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 3px solid #b00000;
+    box-shadow: 0 6px 15px rgba(176, 0, 0, 0.15);
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about p:hover,
+.about .mission:hover,
+.about .vision:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px 6px rgba(176, 0, 0, 0.6);
+    cursor: default;
+}
